@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalendarz podatkowy, podatnika na rok 2023</title>
+	<meta name="description" content="Kalendarz podatkowy na rok 2023. Sprawdzisz tutaj daty zdarzen ksiegowych i dni wolne na cały rok."/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+</head>
+
+<body>
+
+        <div class="calendar js-calendar">
+            <div class="calendar__left">
+                <div class="calendar__left-content">
+                    <h1>Kalendarz</h1>
+                    <div class="calendar__info">
+                        <button class="btn btn__prev js-btn-prev">
+                            <span><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
+                        </button>
+                        <p class="month js-month"></p>
+                        <span>&nbsp;</span>
+                        <p class="year js-year"></p>
+                        <button class="btn btn__next js-btn-next">
+                            <span><i class="fa fa-chevron-right" aria-hidden="true"></i></span>
+                        </button>
+                    </div>
+                    <div class="calendar__date">
+                        <div class="calendar__date-name">Nie</div>
+                        <div class="calendar__date-name">Pon</div>
+                        <div class="calendar__date-name">Wto</div>
+                        <div class="calendar__date-name">Śro</div>
+                        <div class="calendar__date-name">Czw</div>
+                        <div class="calendar__date-name">Pią</div>
+                        <div class="calendar__date-name">Sob</div>
+                    </div>
+                    <div class="date-container"></div>
+                </div>
+            </div>
+            <div class="calendar__right">
+                <h1>Zdarzenia</h1>
+                <div class="calendar__bg">
+                    <div class="calendar__content">
+                        <div class="calendar__event js-event-container"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    <!-- import data event // or you can fake call api to get data -->
+    <script src="./events.js"></script>
+    <script src="./main.js"></script>
+</body>
+
+</html>

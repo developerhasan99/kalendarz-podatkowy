@@ -1,0 +1,238 @@
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    color: #222;
+    background: #222;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+.calendar {
+    justify-content: center;
+    width: 100%;
+    border-radius: 4px;
+    display: flex;
+    overflow: hidden;
+
+    &__left {
+        padding: 32px;
+        flex: 0 0 55%;
+        max-width: 500px;
+        background-color: #f0f0f0;
+        max-height: 600px;
+
+        &-content {
+            max-width: 500px;
+        }
+    }
+    &__right {
+        position: relative;
+        max-width: 500px;
+        flex: 1 1 45%;
+        background: #d5e0d5;
+        max-height: 600px;
+        height: 600px;
+        padding-bottom: 32px;
+        padding-top: 32px;
+
+        h1 {
+            position: absolute;
+            width: 100%;
+            background: #d5e0d5;
+            z-index: 10;
+        }
+
+        .calendar__content {
+            padding: 75px 32px 64px;
+        }
+
+        .calendar__bg {
+            position: relative;
+            overflow-y: scroll;
+            width: 100%;
+            height: 100%;
+            /* width */
+            &::-webkit-scrollbar {
+                width: 3px;
+            }
+    
+            /* Track */
+            &::-webkit-scrollbar-track {
+                background: #d5e0d5;
+            }
+    
+            /* Handle */
+            &::-webkit-scrollbar-thumb {
+                background: #888;
+            }
+        }
+
+
+        .calendar__info {
+            justify-content: left;
+        }
+
+        .calendar__desc {
+            padding-bottom: 7px;
+        }
+    }
+
+    h1 {
+        text-transform: uppercase;
+        padding-bottom: 32px;
+        text-align: center;
+    }
+
+
+    &__info {
+        display: flex;
+        justify-content: center;
+        padding-bottom: 1rem;
+        position: relative;
+        align-items: center;
+
+        p {
+            font-size: 16px;
+            font-weight: 600;
+        }
+    }
+
+    &__date {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+
+
+        &-row {
+            display: flex;
+                    justify-content: center;
+        }
+
+        &-name {
+            color: #999;
+            font-weight: 600;
+        }
+    }
+
+
+    &__day {
+        &.inside {
+            cursor: pointer;
+            &:hover {
+                background: linear-gradient(to right,
+                #aa076b 0%,
+                #61045f 51%,
+                #aa076b 100%) !important;
+                color: #fff;
+            }
+            border-radius: 50%;
+        }
+
+        &.active {
+            background: linear-gradient(to right,
+                    #aa076b 0%,
+                    #61045f 51%,
+                    #aa076b 100%) !important;
+            color: #fff;
+            border-radius: 50%;
+            font-weight: 600;
+
+        }
+
+        &.today {
+            border-radius: 50%;
+            border: 2px solid #61045f;
+        }
+
+        &.event {
+            background: #e0c8c8;
+            border-radius: 50%;
+        }
+    }
+    
+
+    &__day, &__date-name {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        // border: 1px solid #ccc;
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .btn {
+        position: absolute;
+        display: inline-block;
+        padding: 10px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: all 0.5s ease-in;
+        background-image: linear-gradient(to right,
+        #aa076b 0%,
+        #61045f 51%,
+        #aa076b 100%);
+        background-size: 200% auto;
+        color: #fff;
+        box-shadow: 0 0 20px #eee;
+
+        &::hover {
+            background-position: right center;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        &__next {
+            transform: translateX(-50%);
+            left: 75%;
+        }  
+
+        &__prev {
+            transform: translateX(-50%);
+            left: 25%;
+        } 
+    }
+
+    @media screen and (max-width: 767px) {
+        flex-wrap: wrap;
+
+        &__day, &__date-name {
+            width: 40px;
+            height: 40px;
+        }
+
+        .calendar__left, .calendar__right {
+            flex: 0 0 100%;
+        }
+
+    }
+
+    @media screen and (max-width: 576px) {
+        .btn {
+            position: unset;
+            &__next {
+                transform: unset;
+                margin-left: 20px;
+            }  
+    
+            &__prev {
+                transform: unset;
+                margin-right: 20px;
+            } 
+        }
+
+    }
+}
